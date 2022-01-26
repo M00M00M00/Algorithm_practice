@@ -1,9 +1,33 @@
-N = int(input())
+import itertools
 
-board = [[] for _ in range(3)]
+def dischicken(houselist,chickenplace):
+    cnt=100
+    for i in houselist:
+        temp=abs(i[0]-chickenplace[0]) + abs(i[1]-chickenplace[1])
+        cnt=min(cnt,temp)
+        if cnt==1:
+            return 1
+    return cnt
+
+def wholechicken(houselist,chickenlist):
+    cnt=0
+    for i in chickenlist:
+        cnt+=dischicken(houselist,i)
+    return cnt
+
+N,M=map(int,input().split())
+arr=[]
+for _ in range(N):
+    arr.append(list(map(int,input().split())))
+
+house=[]
+chicken=[]
 
 for i in range(N):
-    candies = str(input())
-    board[i].append(candies)
+    for j in range(N):
+        if arr[i][j] == 1:
+            house.append([i,j])
+        elif arr[i][j] == 2:
+            chicken.append([i,j])
 
-print(board)
+print(wholechicken(house,chicken))
