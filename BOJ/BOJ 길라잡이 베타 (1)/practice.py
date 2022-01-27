@@ -1,33 +1,4 @@
-import itertools
+def deleteZero(lst):
+    return [i for i in lst if i not in [0]]
 
-def dischicken(houselist,chickenplace):
-    cnt=100
-    for i in houselist:
-        temp=abs(i[0]-chickenplace[0]) + abs(i[1]-chickenplace[1])
-        cnt=min(cnt,temp)
-        if cnt==1:
-            return 1
-    return cnt
-
-def wholechicken(houselist,chickenlist):
-    cnt=0
-    for i in chickenlist:
-        cnt+=dischicken(houselist,i)
-    return cnt
-
-N,M=map(int,input().split())
-arr=[]
-for _ in range(N):
-    arr.append(list(map(int,input().split())))
-
-house=[]
-chicken=[]
-
-for i in range(N):
-    for j in range(N):
-        if arr[i][j] == 1:
-            house.append([i,j])
-        elif arr[i][j] == 2:
-            chicken.append([i,j])
-
-print(wholechicken(house,chicken))
+print(deleteZero([1,0,0,0,2,3,1,2]))
