@@ -38,7 +38,6 @@ def dfs(n):
 
 
     for i in range(1,10):
-
         if isCorrect(table, zero_pos[n], i):
             table[zero_pos[n][0]][zero_pos[n][1]] = i
             dfs(n+1)
