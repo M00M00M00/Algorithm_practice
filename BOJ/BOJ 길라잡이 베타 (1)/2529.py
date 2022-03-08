@@ -53,5 +53,5 @@ def solution(N):
         print('0' + str(mmin))
     else:
         print(str(mmin))
-
-solution(int(input()))
+N = int(input())
+solution(N)
