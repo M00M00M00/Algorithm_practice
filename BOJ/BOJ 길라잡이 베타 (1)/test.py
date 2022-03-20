@@ -26,3 +26,5 @@ for _ in range(K):
                 arr.append(arr.popleft())
                 check.append(check.popleft())
     print(cnt)
+
+#commit test
