@@ -1,30 +1,17 @@
-from collections import deque
+def han(num):
+    num = str(num)
+    if int(num) < 10:
+        return 1
+    temp = int(num[0]) - int(num[1])
+    for i in range(len(num) - 1):
+        if int(num[i]) - int(num[i + 1]) != temp:
+            return 0
+    return 1
 
-K = int(input())
-for _ in range(K):
-    N, M = map(int,input().split())
-    arr=deque(list(map(int,input().split())))
-    check=deque([0]*N)
-    check[M]="target"
-    cnt=0
-    while True:
-        if check[0] == "target":
-            if arr[0] == max(arr):
-                arr.popleft()
-                check.popleft()
-                cnt+=1
-                break
-            else:
-                arr.append(arr.popleft())
-                check.append(check.popleft())
-        else:
-            if arr[0] == max(arr):
-                arr.popleft()
-                check.popleft()
-                cnt+=1
-            else:
-                arr.append(arr.popleft())
-                check.append(check.popleft())
-    print(cnt)
+N = int(input())
+ans = 0
+for i in range(1, N + 1):
+    if (han(i)):
+        ans += 1
+print(ans)
 
-#commit test TEST
